@@ -1,0 +1,32 @@
+<mat-progress-bar *ngIf="isDataLoading" mode="indeterminate"></mat-progress-bar>
+<div class="wrapper" *ngIf="!isDataLoading">
+  <p>Курс валют на сьогодні</p>
+  <table mat-table [dataSource]="currencyRateList" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="ccy">
+      <th mat-header-cell *matHeaderCellDef> Валюта </th>
+      <td mat-cell *matCellDef="let element"> {{element.ccy}} > {{element.base_ccy}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="buy">
+      <th mat-header-cell *matHeaderCellDef> Купівля </th>
+      <td mat-cell *matCellDef="let element"> {{element.buy}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sale">
+      <th mat-header-cell *matHeaderCellDef> Продаж </th>
+      <td mat-cell *matCellDef="let element"> {{element.sale}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <!-- <ul>
+    <li *ngFor="let currencyRate of currencyRateList">
+      <h6>{{currencyRate.ccy}} > {{currencyRate.base_ccy}}</h6>
+      <p>{{currencyRate.buy}}</p>
+      <p>{{currencyRate.sale}}</p>
+    </li>
+  </ul> -->
+</div>
+
+
