@@ -7,7 +7,7 @@ import { currencyUrl } from './app.constants';
 @Injectable()
 export class AppService {
 
-  public test = "";
+  public test = '';
 
   constructor(private http: HttpClient) { }
 

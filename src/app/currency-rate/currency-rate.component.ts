@@ -9,7 +9,7 @@ import { AppService } from '../app.service';
 })
 export class CurrencyRateComponent implements OnInit {
   currencyRateList: ICurrencyRate[] = [];
-  isDataLoading: boolean = false;
+  isDataLoading = false;
   displayedColumns = ['ccy', 'buy', 'sale'];
 
   constructor(private appService: AppService) {}
