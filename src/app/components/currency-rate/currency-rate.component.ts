@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICurrencyRate } from '../currency-rate.interface';
-import { AppService } from '../app.service';
+import { ICurrencyRate } from '../../models/currency-rate.interface';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-currency-rate',
@@ -11,6 +11,8 @@ export class CurrencyRateComponent implements OnInit {
   currencyRateList: ICurrencyRate[] = [];
   isDataLoading = false;
   displayedColumns = ['ccy', 'buy', 'sale'];
+  currentDate = new Date(Date.now());
+  currentText = "Курс валют";
 
   constructor(private appService: AppService) {}
 

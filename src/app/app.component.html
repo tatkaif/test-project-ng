@@ -1,8 +1,13 @@
 <nav>
-    <mat-toolbar class="nav-wrapper">
+    <mat-toolbar class="nav-wrapper" *ngIf="isUserLoggedIn()">
         <button mat-flat-button color="primary" routerLink="/home">Home</button>
         <button mat-flat-button color="primary" routerLink="/about-me">About me</button>
         <button mat-flat-button color="primary" routerLink="/currency-rate">Currency rate</button>
+        <span class="example-fill-remaining-space"></span>
+        <button mat-button [matMenuTriggerFor]="menu">{{ userInfo?.username }}</button>
+        <mat-menu #menu="matMenu">
+            <button (click)="logout()" mat-menu-item>Log Out</button>
+        </mat-menu>
     </mat-toolbar>
 </nav>
 <router-outlet></router-outlet>
